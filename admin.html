@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hillstrade Ltd | Terminal Management</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+        body { background-color: #0B0F19; color: #F3F4F6; font-family: 'Courier New', Courier, monospace; }
+        .terminal-box { border: 1px solid #1F2937; background-color: #111827; }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+
+    <div class="max-w-5xl mx-auto">
+        <div class="flex justify-between items-center border-b border-gray-800 pb-4 mb-8">
+            <div>
+                <h1 class="text-xl font-bold tracking-widest text-white">HILLSTRADE SYSTEM ADMIN</h1>
+                <p class="text-xs text-green-400">● SECURE GATEWAY ACTIVE</p>
+            </div>
+            <button onclick="logoutAdmin()" id="logoutBtn" class="hidden bg-red-950 text-red-400 border border-red-800 px-3 py-1 text-xs rounded hover:bg-red-900 transition">DISCONNECT</button>
+        </div>
+
+        <div id="authPanel" class="max-w-md mx-auto terminal-box p-6 rounded-lg shadow-xl mt-12">
+            <h2 class="text-sm font-bold text-gray-400 mb-4 tracking-wider">ENTER SECURITY ACCESS KEY</h2>
+            <div class="space-y-4">
+                <input type="password" id="adminPass" placeholder="••••••••••••" class="w-full bg-black border border-gray-800 rounded px-3 py-2 text-white font-mono text-center tracking-widest focus:outline-none focus:border-green-500">
+                <button onclick="loginAdmin()" class="w-full bg-zinc-800 border border-zinc-700 text-white font-bold py-2 rounded text-sm hover:bg-zinc-700 transition tracking-widest">AUTHENTICATE</button>
+            </div>
+            <p id="authError" class="text-red-400 text-xs mt-3 text-center hidden"></p>
+        </div>
+
+        <div id="mainDashboard" class="hidden space-y-6">
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="terminal-box p-4 rounded">
+                    <p class="text-xs text-gray-500">ACTIVE INVESTOR ACCOUNTS</p>
+                    <p id="totalUsers" class="text-2xl font-bold text-white mt-1">0</p>
+                </div>
+                <div class="terminal-box p-4 rounded">
+                    <p class="text-xs text-gray-500">SYSTEM STATUS</p>
+                    <p class="text-2xl font-bold text-green-400 mt-1">OPERATIONAL</p>
+                </div>
+            </div>
+
+            <div class="terminal-box p-6 rounded-lg">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-sm font-bold text-gray-400 tracking-wider">REGISTERED INVESTORS DATABASE</h2>
+                    <button onclick="loadInvestors()" class="bg-zinc-800 text-zinc-300 border border-zinc-700 px-3 py-1 text-xs rounded hover:bg-zinc-700 transition">REFRESH LOGS</button>
+                </div>
+                
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-xs text-gray-400 font-mono">
+                        <thead class="bg-black text-gray-500 uppercase tracking-wider border-b border-gray-800">
+                            <tr>
+                                <th class="p-3">Investor Info</th>
+                                <th class="p-3">Current Balance</th>
+                                <th class="p-3">Total Earnings</th>
+                                <th class="p-3 text-right">Terminal Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="userTableBody">
+                            <tr>
+                                <td colspan="4" class="p-4 text-center text-gray-600">No records loaded. Click refresh logs.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        let currentAdminPass = "";
+
+        function loginAdmin() {
+            const pass = document.getElementById('adminPass').value;
+            if(!pass) return;
+            
+            currentAdminPass = pass;
+            // Verify access key by trying to load database records
+            loadInvestors(true);
+        }
+
+        async function loadInvestors(isInitialLogin = false) {
+            const authError = document.getElementById('authError');
+            authError.classList.add('hidden');
+
+            try {
+                const response = await fetch('/functions/api/get-users', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ adminPassword: currentAdminPass })
+                });
+
+                const result = await response.json();
+
+                if (response.ok && result.success) {
+                    if(isInitialLogin) {
+                        document.getElementById('authPanel').classList.add('hidden');
+                        document.getElementById('mainDashboard').classList.remove('hidden');
+                        document.getElementById('logoutBtn').classList.remove('hidden');
+                    }
+                    renderUserTable(result.users);
+                } else {
+                    if(isInitialLogin) {
+                        authError.textContent = result.error || "Authentication failed.";
+                        authError.classList.remove('hidden');
+                    } else {
+                        alert("Session expired or database error: " + result.error);
+                        logoutAdmin();
+                    }
+                }
+            } catch (err) {
+                authError.textContent = "Connection terminal failure: " + err.message;
+                authError.classList.remove('hidden');
+            }
+        }
+
+        function renderUserTable(users) {
+            document.getElementById('totalUsers').textContent = users.length;
+            const tbody = document.getElementById('userTableBody');
+            tbody.innerHTML = "";
+
+            if(users.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="4" class="p-4 text-center text-gray-600">Zero registered users found within system namespace.</td></tr>`;
+                return;
+            }
+
+            users.forEach(user => {
+                const tr = document.createElement('tr');
+                tr.className = "border-b border-gray-900 hover:bg-zinc-950/40 transition";
+                tr.innerHTML = `
+                    <td class="p-3">
+                        <span class="text-white block font-bold">${user.name}</span>
+                        <span class="text-gray-500 block text-[10px]">${user.email}</span>
+                        <span class="text-[10px] px-1 bg-zinc-900 border border-zinc-800 text-green-500 rounded">${user.status || 'Active Node'}</span>
+                    </td>
+                    <td class="p-3 font-bold text-white">
+                        <input type="text" id="bal-${btoa(user.email)}" value="${user.balance}" class="bg-black border border-gray-800 rounded px-2 py-1 text-xs text-white font-mono w-28 focus:border-blue-500">
+                    </td>
+                    <td class="p-3 font-bold text-emerald-400">
+                        <input type="text" id="earn-${btoa(user.email)}" value="${user.earnings}" class="bg-black border border-gray-800 rounded px-2 py-1 text-xs text-emerald-400 font-mono w-28 focus:border-blue-500">
+                    </td>
+                    <td class="p-3 text-right">
+                        <button onclick="updateInvestor('${user.email}')" class="bg-blue-950 text-blue-400 border border-blue-800 text-[11px] px-3 py-1 rounded hover:bg-blue-900 transition font-bold">UPDATE</button>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        async function updateInvestor(email) {
+            const safeId = btoa(email);
+            const newBalance = document.getElementById(`bal-${safeId}`).value;
+            const newEarnings = document.getElementById(`earn-${safeId}`).value;
+
+            try {
+                const response = await fetch('/functions/api/update-balance', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        adminPassword: currentAdminPass,
+                        email: email,
+                        balance: newBalance,
+                        earnings: newEarnings
+                    })
+                });
+
+                const result = await response.json();
+                if(response.ok && result.success) {
+                    alert(`System database synchronized successfully for ${email}`);
+                    loadInvestors();
+                } else {
+                    alert("Write operation rejected: " + result.error);
+                }
+            } catch (err) {
+                alert("Database critical communication error: " + err.message);
+            }
+        }
+
+        function logoutAdmin() {
+            currentAdminPass = "";
+            document.getElementById('adminPass').value = "";
+            document.getElementById('authPanel').classList.remove('hidden');
+            document.getElementById('mainDashboard').classList.add('hidden');
+            document.getElementById('logoutBtn').classList.add('hidden');
+        }
+    </script>
+</body>
+</html>
